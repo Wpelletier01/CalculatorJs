@@ -12,61 +12,61 @@
         
         <tr>
 
-            <td colspan="4"><input class="small-display" id="sdisplay" readonly /> </td>
+            <th colspan="4"><input class="small-display" id="sdisplay" readonly /> </th>
 
 
         </tr>
         
         <tr>
                        
-            <td colspan="4"><input class="display"  id="display" value="0" readonly /> </td> 
+            <th colspan="4"><input class="display"  id="display" value="0" readonly /> </th> 
         
         </tr>
 
         <tr>
-            <td><input type="button" value="C" onclick="fullClear()" /></td>
-            <td><input type="button" value="+/-" onclick=""/></td>
-            <td><input type="button" value="√"   onclick=""/> </td>
-            <td><input type="button" value="%" onclick=""/></td>
+            <th><input type="button" value="C" onclick="clearCalc()" /></th>
+            <th><input type="button" value="+/-" onclick="invertSign()"/></th>
+            <th><input type="button" value="√"   onclick="sqrt()"/> </th>
+            <th><input type="button" value="%" onclick="arithmetic('%')"/></th>
 
         </tr>
         
         <tr>
-            <td><input type="button" value="MRC"/></td>
-            <td><input type="button" value="M-"/></td>
-            <td><input type="button" value="M+"/></td>
-            <td><input type="button" value="÷" onclick=""/></td>
+            <th><input type="button" value="xʸ" onclick="msqr()"/></th>
+            <th><input type="button" value="x²" onclick="sqr()"/></th>
+            <th><input type="button" value="π" onclick="pi()"/></th>
+            <th><input type="button" value="÷" onclick="arithmetic('/')"/></th>
 
         </tr>
         
         <tr>
-            <td><input type="button" value="7" onclick="addNum('7')"/></td>
-            <td><input type="button" value="8" onclick="addNum('8')"/></td>
-            <td><input type="button" value="9" onclick="addNum('9')"/></td>
-            <td><input type="button" value="X" onclick=""/></td>
+            <th><input type="button" value="7" onclick="addNumber('7')"/></th>
+            <th><input type="button" value="8" onclick="addNumber('8')"/></th>
+            <th><input type="button" value="9" onclick="addNumber('9')"/></th>
+            <th><input type="button" value="x" onclick="arithmetic('*')"/></th>
 
         </tr>
 
         <tr>
-            <td><input type="button" value="4" onclick="addNum('4')"/></td>
-            <td><input type="button" value="5" onclick="addNum('5')"/></td>
-            <td><input type="button" value="6" onclick="addNum('6')"/></td>
-            <td><input type="button" value="-" onclick=""/></td>
+            <th><input type="button" value="4" onclick="addNumber('4')"/></th>
+            <th><input type="button" value="5" onclick="addNumber('5')"/></th>
+            <th><input type="button" value="6" onclick="addNumber('6')"/></th>
+            <th><input type="button" value="-" onclick="arithmetic('-')"/></th>
 
         </tr>
         
         <tr>
-            <td><input type="button" value="1" onclick="addNum('1')"/></td>
-            <td><input type="button" value="2" onclick="addNum('2')"/></td>
-            <td><input type="button" value="3" onclick="addNum('3')"/></td>
-            <td><input type="button" value="+" onclick="arithmetic('+')"/></td>
+            <th><input type="button" value="1" onclick="addNumber('1')"/></th>
+            <th><input type="button" value="2" onclick="addNumber('2')"/></th>
+            <th><input type="button" value="3" onclick="addNumber('3')"/></th>
+            <th><input type="button" value="+" onclick="arithmetic('+')"/></th>
 
         </tr>
 
         <tr>
-            <td><input type="button" value="0" onclick="addNum('0')"/></td>
-            <td><input type="button" value="." onclick="addDot('.')"/></td>
-            <td><input type="button" value="=" onclick="equal()"/></td>
+            <th><input type="button" value="0" onclick="addNumber('0')"/></th>
+            <th><input type="button" value="." onclick="addDot('.')"/></th>
+            <th><input type="button" value="=" onclick="equal()"/></th>
 
         </tr>
         

@@ -1,114 +1,259 @@
 
 
+const DEFAULT_DISPLAY = "0";
 
-function arithmetic(val) {
+
+const OPERATION = {
+
+    Add:        "+",
+    Sub:        "-",
+    Multiply:   "*",
+    Divide:     "/",
+    Modulo:     "%",
+    Equal:      "=",
+    None:       "Na"
+
+}
+
+localStorage.setItem("memory","0")
+localStorage.setItem("pbuffer","0");
+localStorage.setItem("last_operation","Na")
 
 
-    switch (val) {
+function addNumber(num) {
 
-        case "+": {
+    if (getDisplay() == DEFAULT_DISPLAY) {
 
-            document.getElementById("sdisplay").value = performAdd();
+        setDisplay("");
 
-            break;
+    }  
+
+    pushToDisplay(num);
+
+}
+
+function arithmetic(operation) {
+
+
+    var rep = ""
+
+    if (getpBuffer() == "0" || getLastOperation() == OPERATION.Equal) {
+
+        rep = getDisplay();
+
+    } else {
+            
+        
+        switch(operation) {
+            
+            case OPERATION.Add: {
+        
+                rep = sum();
+                break;
+        
+            }
+        
+            case OPERATION.Sub: {
+                 
+                rep = sub();
+                break;
+        
+            }
+        
+            case OPERATION.Multiply: {
+    
+                rep = multiply();
+                break;
+    
+            }
+
+            case OPERATION.Divide: {
+
+                rep = divide();
+                break;
+            }
+
+            case OPERATION.Modulo: {
+
+                rep = modulo();
+                break;
+            }
+        
+    
+    
+    
         }
-
-
+            
+        
 
     }
 
-    setInitVal();
+    setpBuffer(rep);
+    
+    setLastOperation(operation);
+
+    setDisplay(DEFAULT_DISPLAY);
+
+    setSmallDisplay(getpBuffer());
     
 
 }
+
+
 
 function equal() {
 
+    var rep = ""
 
-    document.getElementById("display").value = performAdd()
+    switch (getLastOperation()) {
 
-    document.getElementById("sdisplay").value = "";
+        case OPERATION.Add : {
+            
+            rep = sum();    
+            break;
+        }
 
+        case OPERATION.Sub:  {
+
+            rep = sub()
+            break;
+
+        }
+
+        case OPERATION.Multiply: {
+
+            rep = multiply();
+            break;
+
+        }
+
+        case OPERATION.Divide: {
+
+            rep = divide();
+            break;
+
+        }
+
+        case OPERATION.Modulo: {
+
+            rep = modulo();
+            break;
+
+        }
+
+
+    }
+
+    setpBuffer(rep);
+    setDisplay(rep);
+
+    setSmallDisplay("");
+
+    setLastOperation(OPERATION.Equal);
 
 }
 
-function addDot() {
+function invertSign() {
 
-    var disp = getDisplayVal()
+    if (getDisplay().includes("-")) {
+        
+        if (getDisplay() == "-") {
+
+            setDisplay(DEFAULT_DISPLAY);
+
+        } else {
+
+            setDisplay(getDisplay().replace("-",""));
+
+        }
+        
+
+    } else {
+
+        if (getDisplay() == "0") {
+
+            setDisplay("-");
+
+        } else {
+
+            setDisplay( "-" + getDisplay());
+        }
+     
+
+    }
+
+}
 
 
-    if (!disp.includes(".")) {
+/*  clear buffer and display value and set to their default value
+*   trigger when press C button
+*/
+function clearCalc() {
 
-        document.getElementById("display").value += ".";
+    setpBuffer("0");
+    setDisplay(DEFAULT_DISPLAY);
+    setSmallDisplay("");
+    setMemory(0);
+    
+
+}
+
+function pi() { 
+
+    if (getDisplay() == DEFAULT_DISPLAY) {
+
+        setDisplay(Math.PI);
+
+    } else {
+
+        setDisplay(Number(getDisplay)*(Math.PI));
 
     }
 
 
-}
-
-function addNum(val) {
-
-    if (getDisplayVal() == "0") {
-
-        clearDisplay();
-
-    }
-
-    document.getElementById("display").value += val;
-
 
 }
 
-function fullClear() {
+function sqr() { setDisplay(Math.pow(getDisplay(),2)); }
 
-    document.getElementById("display").value = "";    
-    document.getElementById("sdisplay").value = "";
-    
-    
+function msqr() { setDisplay("not yet implemented"); }
 
-}
+function sqrt() { setDisplay(Math.sqrt(getDisplay())); }
 
+function sum() { return (Number(getpBuffer())) + Number(getDisplay()); }
 
+function sub() { return Number(getpBuffer()) - Number(getDisplay()); }
+
+function multiply() { return Number(getpBuffer()) * Number(getDisplay()); }
+
+function divide() { return  Number(getpBuffer()) / Number(getDisplay()); }
+
+function modulo() { return  Number(getpBuffer()) % Number(getDisplay());}
 
 /*
-*   remove any value from the display
+* 
+    Function to remove boilerplate code
+*
 */
-function clearDisplay() {
 
+// change the whole value on the display
+function setDisplay(val) { document.getElementById("display").value = val; }
 
-    document.getElementById("display").value = "";    
+// add char at the end of the display
+function pushToDisplay(num) { document.getElementById("display").value += num; }
 
-    
-}
+function getDisplay() { return document.getElementById("display").value; }
 
+function setpBuffer(val) { localStorage.setItem("pbuffer",val); }
 
-/*
-*   Set the value of the display to 0
-*/
-function setInitVal() {
+function getpBuffer() { return localStorage.getItem("pbuffer"); }
 
-    document.getElementById("display").value = "0"; 
+function setMemory(val) { return localStorage.setItem("memory",val); }
 
+function getMemory() { return localStorage.getItem("memory"); }
 
-}
+function setSmallDisplay(val) { document.getElementById("sdisplay").value = val; }
 
+function setLastOperation(operation) { localStorage.setItem("last_operation", operation); }
 
-function getDisplayVal() {
-
-
-    return document.getElementById("display").value;
-
-}
-
-function getSmallDispVal() {
-
-    return document.getElementById("sdisplay").value;
-
-}
-
-function performAdd() {
-
-    return Number(getSmallDispVal()) + Number(getDisplayVal()) 
-
-
-}
+function getLastOperation() { return localStorage.getItem("last_operation")}
