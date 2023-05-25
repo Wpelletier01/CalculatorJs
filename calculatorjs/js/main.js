@@ -17,8 +17,8 @@ function arithmetic(val) {
 
     }
 
-    clearDisplay();
-
+    setInitVal();
+    
 
 }
 
@@ -48,7 +48,11 @@ function addDot() {
 
 function addNum(val) {
 
+    if (getDisplayVal() == "0") {
 
+        clearDisplay();
+
+    }
 
     document.getElementById("display").value += val;
 
@@ -71,6 +75,14 @@ function clearDisplay() {
 
 
 }
+
+function setInitVal() {
+
+    document.getElementById("display").value = "0"; 
+
+
+}
+
 
 function getDisplayVal() {
 
