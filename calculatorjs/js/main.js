@@ -68,14 +68,23 @@ function fullClear() {
 
 }
 
+
+
+/*
+*   remove any value from the display
+*/
 function clearDisplay() {
 
 
     document.getElementById("display").value = "";    
 
-
+    
 }
 
+
+/*
+*   Set the value of the display to 0
+*/
 function setInitVal() {
 
     document.getElementById("display").value = "0"; 
