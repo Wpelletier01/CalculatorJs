@@ -3,7 +3,7 @@
 .calculator {
 
     vertical-align: middle;
-    background-color: gray;
+    background-color: rgb(15, 147, 218);
    
     
     
@@ -11,6 +11,7 @@
     margin: 0 auto;
     width: 520px;
 
+    border-color: rgb(60, 167, 244);
     border-style: solid;
     border-width: 10px;
     border-radius: 5px;
@@ -20,11 +21,16 @@
 
 .small-display {
 
+
     font-family:    'Courier New', Courier, monospace;
-    font-size:      15px;  
+    font-size:      25px;  
+    color: grey;
+
+    margin-top: 10px;
     padding-left:   10px;
     padding-right: 10px;  
-    width: 500px;
+    
+    width: 450px;
     height: 50px;
     border: none;
     background-color: whitesmoke;
@@ -35,15 +41,24 @@
 
 .display {
 
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 40px;
+
+    font-family: 'Courier New', Courier, monospace, blue;
+    font-size: 60px;
+
+    
     margin: 0px;
-    padding-bottom: 20px;
+    
+   
     padding-left: 10px;
     padding-right: 10px;
-    width: 500px;
+
+    margin-bottom: 30px;
+   
+    width: 450px;
     height: 100px;
+
     border: none;
+   
     background-color: whitesmoke;
     pointer-events: none;
 
@@ -54,7 +69,7 @@ input[type=button] {
 
     
 
-    margin:             0;
+    margin:             5px;
 
     border-collapse:    collapse;    
     font-family:        'Courier New', Courier, monospace;
@@ -63,6 +78,30 @@ input[type=button] {
 
     width:              125px;
     height:             70px;
+
+    border-color:      crimson;
+    border-width:       5px;
+    border-radius:      40px
+   
+}
+
+input[type="button1"] {
+
+    background-color:   orange;
+
+    margin:             5px;
+
+    border-collapse:    collapse;    
+    font-family:        'Courier New', Courier, monospace;
+    font-size:          50px;
+    text-align:         center;
+
+    width:              120px;
+    height:             50px;
+
+    border-color:      rgb(240, 109, 69);
+    border-width:       10px;
+    border-radius:      40px
 
 
 }
